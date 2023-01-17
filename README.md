@@ -26,6 +26,8 @@ tanzu apps workload tail app-mavenartifact
 | --------------- | ------------------------------------------------------------------------------------- |
 | Scan Policy     | [default](resources/scan-policy.yaml)                                                 |
 | Pipeline        | [developer-defined-tekton-pipeline](resources/developer-defined-tekton-pipeline.yaml) |
-| tap-values.yaml | na                                                                                    |
+| tap-values.yaml | ```  maven:
+    repository:
+      url: https://us-east1-maven.pkg.dev/ship-interfaces-dev/test-repository```                          |
 | Supply Chain    | scanning-image-scan-to-url                                                            |
 
