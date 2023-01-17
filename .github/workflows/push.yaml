@@ -1,0 +1,33 @@
+---
+name: push
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  default:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      # setup Docker buld action
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Github Packages
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pack Build
+        uses: dfreilich/pack-action@v2.1.1
+        with:
+          version: 0.28.0
+          args: 'build ghcr.io/${{ github.repository }} --builder paketobuildpacks/builder-jammy-base:latest --publish'
