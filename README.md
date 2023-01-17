@@ -9,6 +9,7 @@ tanzu apps workload create app-mavenartifact \
   --maven-group com.example \
   --maven-type jar \
   --maven-version 0.0.2 \
+  --label apps.tanzu.vmware.com/has-tests=true \
   --label app.kubernetes.io/part-of=app-mavenartifact \
   --type web \
   --yes
