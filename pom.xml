@@ -125,4 +125,10 @@
     </repository>
   </repositories>
 
+  <scm>
+    <developerConnection>scm:git:ssh://git@github.com/carto-run/app-mavenartifact.git</developerConnection>
+    <connection>scm:git:ssh://git@github.com/carto-run/app-mavenartifact.git</connection>
+    <url>https://github.com/carto-run/app-mavenartifact</url>
+  </scm>
+
 </project>
