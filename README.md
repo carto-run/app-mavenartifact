@@ -29,11 +29,19 @@ tanzu apps workload tail app-mavenartifact
 </tr>
 <tr>
 <td> Scan Policy </td>
-<td> [default](resources/scan-policy.yaml)  </td>
+<td> 
+  
+[default](resources/scan-policy.yaml)
+  
+</td>
 </tr>
 <tr>
 <td> Pipeline </td>
-<td> [developer-defined-tekton-pipeline](resources/developer-defined-tekton-pipeline.yaml) </td>
+<td>
+  
+[developer-defined-tekton-pipeline](resources/developer-defined-tekton-pipeline.yaml)
+  
+</td>
 </tr>
 <tr>
 <td> tap-values.yaml </td>
@@ -49,6 +57,6 @@ maven:
 </tr>
 <tr>
 <td> Supply Chain </td>
-<td> scanning-image-scan-to-url   </td>
+<td> scanning-image-scan-to-url </td>
 </tr>
 </table>
