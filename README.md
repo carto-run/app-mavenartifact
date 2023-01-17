@@ -9,7 +9,6 @@ tanzu apps workload create app-mavenartifact \
   --maven-group com.example \
   --maven-type jar \
   --maven-version 0.0.2 \
-  --image ghcr.io/carto-run/app-mavenartifact:latest \
   --label app.kubernetes.io/part-of=app-mavenartifact \
   --type web \
   --yes
