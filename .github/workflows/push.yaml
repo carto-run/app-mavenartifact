@@ -15,19 +15,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      # setup Docker buld action
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Login to Github Packages
-        uses: docker/login-action@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          distribution: 'temurin'
+          java-version: 11
 
-      - name: Pack Build
-        uses: dfreilich/pack-action@v2.1.1
-        with:
-          version: 0.28.0
-          args: 'build ghcr.io/${{ github.repository }} --builder paketobuildpacks/builder-jammy-base:latest --publish'
+      - name: Test
+        run: |
+          mvn --no-transfer-progress deploy
