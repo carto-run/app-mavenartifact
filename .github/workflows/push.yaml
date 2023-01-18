@@ -27,4 +27,6 @@ jobs:
           release-branch-name: main
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           git-release-bot-name: "release-bot"
-          git-release-bot-email: "release-bot@example.com"  
+          git-release-bot-email: "release-bot@example.com"
+        env:
+          JAVA_HOME: /usr/lib/jvm/java-11-openjdk/  
