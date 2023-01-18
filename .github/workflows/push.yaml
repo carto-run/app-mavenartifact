@@ -22,12 +22,8 @@ jobs:
           java-version: 11
 
       - name: Release
-        uses: qcastel/github-actions-maven-release@master
-        with:
-          release-branch-name: main
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          maven-servers: ${{ secrets.MVN_REPO_SERVERS }}
-          git-release-bot-name: "release-bot"
-          git-release-bot-email: "release-bot@example.com"
-        env:
-          JAVA_HOME: /usr/lib/jvm/java-11-openjdk/  
+        run: |
+          echo "${{ secrets.MVN_SETTINGS }}" > /root/.m2/settings.xml
+
+          mvn -B release:prepare
+          mvn -B release:perform
