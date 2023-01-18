@@ -21,6 +21,11 @@ jobs:
           distribution: 'temurin'
           java-version: 11
 
+      - name: maven-settings-xml-action
+        uses: whelk-io/maven-settings-xml-action@v20
+        with:
+          servers: '${{ secrets.MAVEN_SERVERS }}'
+
       - name: Release
         run: |
           mvn -B release:prepare
