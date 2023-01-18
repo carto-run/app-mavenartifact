@@ -21,7 +21,9 @@ jobs:
           distribution: 'temurin'
           java-version: 11
 
-      - name: Test
-        run: |
-          mvn -B release:prepare
-          mvn -B release:perform 
+      - name: Release
+        uses: qcastel/github-actions-maven-release@master
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          git-release-bot-name: "release-bot"
+          git-release-bot-email: "release-bot@example.com"  

@@ -44,9 +44,43 @@ tanzu apps workload tail app-mavenartifact
 <tr>
 <td> Pipeline </td>
 <td>
-  
-[developer-defined-noop-tekton-pipeline](resources/developer-defined-noop-tekton-pipeline.yaml)
-  
+
+```yaml
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  labels:
+    apps.tanzu.vmware.com/pipeline: noop-pipeline
+  name: developer-defined-noop-tekton-pipeline
+  namespace: dev
+spec:
+  params:
+  - name: source-url
+    type: string
+  - name: source-revision
+    type: string
+  tasks:
+  - name: noop-task
+    params:
+    - name: source-url
+      value: $(params.source-url)
+    - name: source-revision
+      value: $(params.source-revision)
+    taskSpec:
+      metadata: {}
+      params:
+      - name: source-url
+        type: string
+      - name: source-revision
+        type: string
+      steps:
+      - image: bash
+        name: noop
+        resources: {}
+        script: |
+          echo "Nothing to do for $(params.source-url)/$(params.source-revision)"
+```  
+
 </td>
 </tr>
 
@@ -66,7 +100,7 @@ maven:
 
 <tr>
 <td> Supply Chain </td>
-<td> scanning-image-scan-to-url </td>
+<td> source-test-scan-to-url </td>
 </tr>
 
 <tr>
