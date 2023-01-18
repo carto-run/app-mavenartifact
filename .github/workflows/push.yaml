@@ -23,7 +23,7 @@ jobs:
 
       - name: Release
         run: |
-          echo "${{ secrets.MVN_SETTINGS }}" > /root/.m2/settings.xml
+          echo "${{ secrets.MVN_SETTINGS }}" > /home/runner/.m2/settings.xml
 
           mvn -B release:prepare
           mvn -B release:perform
