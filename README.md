@@ -11,6 +11,8 @@ tanzu apps workload create app-mavenartifact \
   --maven-version 0.0.2 \
   --label apps.tanzu.vmware.com/has-tests=true \
   --label app.kubernetes.io/part-of=app-mavenartifact \
+  --param-yaml testing_pipeline_matching_labels='{"apps.tanzu.vmware.com/pipeline":"noop-pipeline"}' \
+  --param-yaml testing_pipeline_params='{}' \
   --type web \
   --yes
 ```
@@ -43,7 +45,7 @@ tanzu apps workload tail app-mavenartifact
 <td> Pipeline </td>
 <td>
   
-[developer-defined-tekton-pipeline](resources/developer-defined-tekton-pipeline.yaml)
+[developer-defined-noop-tekton-pipeline](resources/developer-defined-noop-tekton-pipeline.yaml)
   
 </td>
 </tr>

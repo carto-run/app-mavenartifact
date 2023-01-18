@@ -2,8 +2,8 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   labels:
-    apps.tanzu.vmware.com/pipeline: test
-  name: developer-defined-tekton-pipeline
+    apps.tanzu.vmware.com/pipeline: noop-pipeline
+  name: developer-defined-noop-tekton-pipeline
   namespace: dev
 spec:
   params:
@@ -12,7 +12,7 @@ spec:
   - name: source-revision
     type: string
   tasks:
-  - name: test
+  - name: noop-task
     params:
     - name: source-url
       value: $(params.source-url)
@@ -26,10 +26,8 @@ spec:
       - name: source-revision
         type: string
       steps:
-      - image: gradle
-        name: test
+      - image: bash
+        name: noop
         resources: {}
         script: |
-          cd `mktemp -d`
-          wget -qO- $(params.source-url) | tar xvz -m
-          ./mvnw -X test --no-transfer-progress
+          echo "Nothing to do for $(params.source-url)/$(params.source-revision)"
