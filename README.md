@@ -56,6 +56,7 @@ tanzu apps workload tail app-mavenartifact
 maven:
   repository:
     url: https://us-east1-maven.pkg.dev/ship-interfaces-dev/test-repository
+    secret_name: maven-credentials
 ```
 
 </td>
