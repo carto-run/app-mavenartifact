@@ -24,10 +24,12 @@ tanzu apps workload tail app-mavenartifact
 ## Configuration
 
 <table>
+
 <tr>
 <th> Item </th>
 <th> Config </th>
 </tr>
+
 <tr>
 <td> Scan Policy </td>
 <td> 
@@ -36,6 +38,7 @@ tanzu apps workload tail app-mavenartifact
   
 </td>
 </tr>
+
 <tr>
 <td> Pipeline </td>
 <td>
@@ -44,6 +47,7 @@ tanzu apps workload tail app-mavenartifact
   
 </td>
 </tr>
+
 <tr>
 <td> tap-values.yaml </td>
 <td> 
@@ -56,8 +60,30 @@ maven:
 
 </td>
 </tr>
+
 <tr>
 <td> Supply Chain </td>
 <td> scanning-image-scan-to-url </td>
 </tr>
+
+<tr>
+<td> Maven Credentials </td>
+<td>
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: maven-credentials
+  namespace: dev
+type: Opaque
+stringData:
+  username: _json_key_base64
+  password: |
+    <gcp service account key>
+```
+
+</td>
+</tr>
+
 </table>
