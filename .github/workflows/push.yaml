@@ -31,5 +31,7 @@ jobs:
           git config --global user.email "gareth@bryncynfelin.co.uk"
           git config --global user.name "garethjevans"
 
+          cat /home/runner/.m2/settings.xml
+
           mvn -B release:prepare
           mvn -B release:perform
