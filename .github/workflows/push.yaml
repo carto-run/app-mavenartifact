@@ -28,5 +28,8 @@ jobs:
 
       - name: Release
         run: |
+          git config --global user.email "gareth@bryncynfelin.co.uk"
+          git config --global user.name "garethjevans"
+
           mvn -B release:prepare
           mvn -B release:perform
