@@ -8,7 +8,7 @@ tanzu apps workload create app-mavenartifact \
   --maven-artifact app-mavenartifact \
   --maven-group com.example \
   --maven-type jar \
-  --maven-version 0.0.2 \
+  --maven-version RELEASE \
   --label apps.tanzu.vmware.com/has-tests=true \
   --label app.kubernetes.io/part-of=app-mavenartifact \
   --param-yaml testing_pipeline_matching_labels='{"apps.tanzu.vmware.com/pipeline":"noop-pipeline"}' \
