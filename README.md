@@ -17,6 +17,23 @@ tanzu apps workload create app-mavenartifact \
   --yes
 ```
 
+### Simulating a broken source-provider
+
+```
+tanzu apps workload create app-mavenartifact-fails-at-source-provider \
+  --namespace dev \
+  --maven-artifact app-mavenartifact-fails-at-source-provider \
+  --maven-group com.example \
+  --maven-type war \
+  --maven-version RELEASE \
+  --label apps.tanzu.vmware.com/has-tests=true \
+  --label app.kubernetes.io/part-of=app-mavenartifact-fails-at-source-provider \
+  --param-yaml testing_pipeline_matching_labels='{"apps.tanzu.vmware.com/pipeline":"noop-pipeline"}' \
+  --param-yaml testing_pipeline_params='{}' \
+  --type web \
+  --yes
+```
+
 ## Logs
 
 ```
