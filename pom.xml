@@ -9,7 +9,7 @@
   </parent>
   <groupId>com.example</groupId>
   <artifactId>app-mavenartifact</artifactId>
-  <version>0.0.14-SNAPSHOT</version>
+  <version>0.0.14</version>
   <name>app-mavenartifact</name>
   <description>Demo project for Spring Boot</description>
 
@@ -129,7 +129,7 @@
     <developerConnection>scm:git:${project.scm.url}</developerConnection>
     <connection>scm:git:${project.scm.url}</connection>
     <url>https://github.com/carto-run/app-mavenartifact</url>
-    <tag>HEAD</tag>
+    <tag>v0.0.14</tag>
   </scm>
 
 </project>
