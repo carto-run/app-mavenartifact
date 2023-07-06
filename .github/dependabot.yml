@@ -5,6 +5,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      spring-boot:
+        patterns:
+          - "spring-boot*"
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
